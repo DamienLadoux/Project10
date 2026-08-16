@@ -1,3 +1,7 @@
+from django.urls import include, path
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
+from django.contrib import admin
+
 """
 URL configuration for softdesk project.
 
@@ -19,4 +23,8 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("api/", include("users.urls")),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/token/', TokenObtainPairView.as_view(), name='obtain_tokens'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='refresh_token'),
 ]

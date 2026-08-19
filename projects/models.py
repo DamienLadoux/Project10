@@ -28,12 +28,48 @@ class Contributor(models.Model):
     permission = models.CharField(max_length=100)
     role = models.CharField(max_length=100)
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "project"],
+                name="unique_user_project",
+            ),
+        ]
+
 class Issue(models.Model):
+    TAG_CHOICES = [
+        ("bug", "Bug"),
+        ("task", "Tâche"),
+        ("improvement", "Amélioration"),
+    ]
+
+    PRIORITY_CHOICES = [
+        ("low", "Faible"),
+        ("medium", "Moyenne"),
+        ("high", "Haute"),
+    ]
+
+    STATUS_CHOICES = [
+        ("to-do", "À faire"),
+        ("in-progress", "En cours"),
+        ("finished", "Terminé"),
+    ]
     title = models.CharField(max_length=200)
     description = models.TextField()
-    tag = models.CharField(max_length=100)
-    priority = models.CharField(max_length=100)
-    status = models.CharField(max_length=100)
+    tag = models.CharField(
+        max_length=20,
+        choices=TAG_CHOICES,
+    )
+
+    priority = models.CharField(
+        max_length=20,
+        choices=PRIORITY_CHOICES,
+    )
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+    )
     created_time = models.DateTimeField(auto_now_add=True)
 
     author = models.ForeignKey(

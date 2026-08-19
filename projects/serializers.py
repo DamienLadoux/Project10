@@ -13,6 +13,11 @@ class ProjectSerializer(serializers.ModelSerializer):
             "created_time",
             "author",
         ]
+        read_only_fields = [
+            "id",
+            "created_time",
+            "author",
+        ]
 
 class ContributorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -21,8 +26,6 @@ class ContributorSerializer(serializers.ModelSerializer):
             "id",
             "user",
             "project",
-            "permission",
-            "role",
         ]
 
 class IssueSerializer(serializers.ModelSerializer):
@@ -40,6 +43,11 @@ class IssueSerializer(serializers.ModelSerializer):
             "assignee",
             "project",
         ]
+        read_only_fields = [
+            "id",
+            "author",
+            "created_time",
+        ]
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -50,4 +58,9 @@ class CommentSerializer(serializers.ModelSerializer):
             "created_time",
             "author",
             "issue",
+        ]
+        read_only_fields = [
+            "id",
+            "author",
+            "created_time",
         ]

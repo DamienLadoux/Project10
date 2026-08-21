@@ -35,7 +35,3 @@ htmlcov/
 
 # Static files
 staticfiles/
-
-# Migrations (optionnel)
-# **/migrations/
-# !**/migrations/__init__.py

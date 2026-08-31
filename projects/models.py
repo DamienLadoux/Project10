@@ -3,6 +3,8 @@ from django.conf import settings
 import uuid
 
 # Create your models here.
+
+
 class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
@@ -13,6 +15,7 @@ class Project(models.Model):
         on_delete=models.CASCADE,
         related_name="projects_created",
     )
+
 
 class Contributor(models.Model):
     user = models.ForeignKey(
@@ -35,6 +38,7 @@ class Contributor(models.Model):
                 name="unique_user_project",
             ),
         ]
+
 
 class Issue(models.Model):
     TAG_CHOICES = [
@@ -89,7 +93,8 @@ class Issue(models.Model):
         on_delete=models.CASCADE,
         related_name="issues",
     )
-    
+
+
 class Comment(models.Model):
     id = models.UUIDField(
         primary_key=True,

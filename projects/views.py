@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import viewsets, serializers
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import PermissionDenied
@@ -12,6 +11,8 @@ from .serializers import (
 )
 
 # Create your views here.
+
+
 class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     permission_classes = [IsAuthenticated, IsAuthorOrReadOnly]
@@ -30,9 +31,11 @@ class ProjectViewSet(viewsets.ModelViewSet):
             user=self.request.user,
         )
 
+
 class ContributorViewSet(viewsets.ModelViewSet):
     serializer_class = ContributorSerializer
     permission_classes = [IsAuthenticated]
+
     def get_queryset(self):
         user = self.request.user
 
@@ -96,9 +99,10 @@ class IssueViewSet(viewsets.ModelViewSet):
 
         serializer.save(author=self.request.user)
 
+
 class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
-    permission_classes = [IsAuthenticated,IsAuthorOrReadOnly]
+    permission_classes = [IsAuthenticated, IsAuthorOrReadOnly]
 
     def get_queryset(self):
         user = self.request.user

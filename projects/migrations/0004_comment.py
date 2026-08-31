@@ -20,8 +20,10 @@ class Migration(migrations.Migration):
                 ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('description', models.TextField()),
                 ('created_time', models.DateTimeField(auto_now_add=True)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to=settings.AUTH_USER_MODEL)),
-                ('issue', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='projects.issue')),
+                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                             related_name='comments', to=settings.AUTH_USER_MODEL)),
+                ('issue', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                            related_name='comments', to='projects.issue')),
             ],
         ),
     ]

@@ -1,5 +1,5 @@
 from django.urls import include, path
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.contrib import admin
 
 """
@@ -18,8 +18,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +26,6 @@ urlpatterns = [
     path("api/", include("users.urls")),
     path('api-auth/', include('rest_framework.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='obtain_tokens'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='refresh_token'),
+    path('api/token/refresh/', TokenRefreshView.as_view(),
+         name='refresh_token'),
 ]
-

@@ -52,7 +52,7 @@ class Command(BaseCommand):
         mobile, _ = Project.objects.get_or_create(
             title="Application mobile",
             defaults={
-                "description": "Application mobile destinée aux équipes terrain.",
+                "description": "App mobile destinée aux équipes terrain",
                 "type": "mobile",
                 "author": bob,
             },
@@ -101,7 +101,7 @@ class Command(BaseCommand):
             title="Améliorer le mode hors ligne",
             project=mobile,
             defaults={
-                "description": "Prévoir une synchronisation après reconnexion.",
+                "description": "Prévoir synchronisation après reconnexion.",
                 "tag": "improvement",
                 "priority": "low",
                 "status": "to-do",
@@ -112,7 +112,7 @@ class Command(BaseCommand):
         Comment.objects.get_or_create(
             issue=issue_1,
             author=bob,
-            description="Le scénario d'expiration est reproduit et en cours de correction.",
+            description="Le scénario d'expiration est reproduit et en correction.",
         )
 
         self.stdout.write(

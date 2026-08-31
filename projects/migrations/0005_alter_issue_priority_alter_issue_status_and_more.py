@@ -15,20 +15,24 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='issue',
             name='priority',
-            field=models.CharField(choices=[('low', 'Faible'), ('medium', 'Moyenne'), ('high', 'Haute')], max_length=20),
+            field=models.CharField(choices=[('low', 'Faible'), ('medium', 'Moyenne'),
+                                            ('high', 'Haute')], max_length=20),
         ),
         migrations.AlterField(
             model_name='issue',
             name='status',
-            field=models.CharField(choices=[('to-do', 'À faire'), ('in-progress', 'En cours'), ('finished', 'Terminé')], max_length=20),
+            field=models.CharField(choices=[('to-do', 'À faire'), ('in-progress', 'En cours'),
+                                            ('finished', 'Terminé')], max_length=20),
         ),
         migrations.AlterField(
             model_name='issue',
             name='tag',
-            field=models.CharField(choices=[('bug', 'Bug'), ('task', 'Tâche'), ('improvement', 'Amélioration')], max_length=20),
+            field=models.CharField(choices=[('bug', 'Bug'), ('task', 'Tâche'),
+                                            ('improvement', 'Amélioration')], max_length=20),
         ),
         migrations.AddConstraint(
             model_name='contributor',
-            constraint=models.UniqueConstraint(fields=('user', 'project'), name='unique_user_project'),
+            constraint=models.UniqueConstraint(fields=('user', 'project'),
+                                               name='unique_user_project'),
         ),
     ]

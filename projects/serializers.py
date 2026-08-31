@@ -19,6 +19,7 @@ class ProjectSerializer(serializers.ModelSerializer):
             "author",
         ]
 
+
 class ContributorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contributor
@@ -27,6 +28,7 @@ class ContributorSerializer(serializers.ModelSerializer):
             "user",
             "project",
         ]
+
 
 class IssueSerializer(serializers.ModelSerializer):
     class Meta:
@@ -48,6 +50,7 @@ class IssueSerializer(serializers.ModelSerializer):
             "author",
             "created_time",
         ]
+
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:

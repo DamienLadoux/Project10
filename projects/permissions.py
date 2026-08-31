@@ -24,4 +24,3 @@ class IsProjectContributor(BasePermission):
 
     def has_object_permission(self, request, view, obj):
         return obj.project.contributors.filter(user=request.user).exists()
-
